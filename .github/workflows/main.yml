@@ -27,4 +27,4 @@ jobs:
           server: pif.o2switch.net
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /public_html/production.medisource
+          server-dir: /public_html/production.medisource/
