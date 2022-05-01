@@ -4,8 +4,7 @@ import Button from '@mui/material/Button'
 function App() {
   return (
     <div className="App" id="app">
-      <Button variant="contained" color="primary">Contained</Button>
-      test
+      <Button variant="contained" color="secondary">Contained</Button>
     </div>
   )
 }
