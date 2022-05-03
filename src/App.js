@@ -4,7 +4,6 @@ import axios from 'axios'
 import { Container } from '@mui/material'
 import Header from './component/utils/Header'
 import InnerNav from './component/utils/InnerNav'
-import { GetSysteme } from './context/query'
 
 function App() {
   return (
