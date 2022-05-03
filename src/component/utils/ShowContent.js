@@ -1,6 +1,8 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useCallback, useEffect, useState } from 'react'
 import CircularProgress from '@mui/material/CircularProgress'
+import Skeleton from '@mui/material/Skeleton'
+import Stack from '@mui/material/Stack'
 import Box from '@mui/material/Box'
 import { useFetch } from '../../context/query'
 
@@ -16,8 +18,13 @@ function ShowContent({ value }) {
   }
 
   return (
-    <Box sx={{ width: '100%' }}>
-      {loading && <CircularProgress color="warning" />}
+    <Box padding="0 50px">
+      {loading && (
+      <Stack spacing={1} sx={{ maxWidth: '100%', mx: 'auto' }}>
+        <Skeleton variant="text" />
+        <Skeleton variant="rectangular" height={118} />
+      </Stack>
+      )}
       {data && data.map((el) => (
         <p key={el[`id_${value}`]}>
           {el[`name_${value}`]}
