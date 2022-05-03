@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import Box from '@mui/material/Box'
 import Tabs from '@mui/material/Tabs'
+import Container from '@mui/material/Container'
 import Tab from '@mui/material/Tab'
 import ShowContent from './ShowContent'
 
@@ -11,7 +12,7 @@ function InnerNav() {
   }
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Container maxWidth="lg">
       <Tabs value={value} onChange={handleChange} centered>
         <Tab label="Système" value="systeme" />
         <Tab label="Organe" value="organe" />
@@ -19,7 +20,7 @@ function InnerNav() {
         <Tab label="Traitement" value="traitement" />
       </Tabs>
       {value && <ShowContent value={value} />}
-    </Box>
+    </Container>
   )
 }
 
