@@ -1,28 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 
-export const GetSysteme = () => {
-  const [data, setData] = useState({})
+export const useFetch = (value) => {
+  const [data, setData] = useState()
   const [loading, setLoading] = useState(false)
-
-  // axios.get('http://localhost:3001/systeme').then((response) => response.data)
-  //   .catch((error) => error)
+  const [error, setError] = useState(false)
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { data: response } = await axios.get('/stuff/to/fetch')
-        setData(response)
-      } catch (error) {
-        console.error(error)
-      }
+    setLoading(true)
+    axios.get(`http://localhost:3001/${value}`).then((response) => {
+      setData(response.data)
       setLoading(false)
-    }
+    })
+      .catch((err) => setError(err))
+  }, [value])
 
-    fetchData()
-  }, [])
-
-  return { data, loading }
+  return { data, loading, error }
 }
 
 export const GetOrgane = () => {
