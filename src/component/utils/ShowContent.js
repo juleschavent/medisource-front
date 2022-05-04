@@ -2,6 +2,8 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import CircularProgress from '@mui/material/CircularProgress'
 import Skeleton from '@mui/material/Skeleton'
+import TextField from '@mui/material/TextField'
+import Autocomplete from '@mui/material/Autocomplete'
 import Stack from '@mui/material/Stack'
 import Box from '@mui/material/Box'
 import { useFetch } from '../../context/query'
@@ -25,11 +27,20 @@ function ShowContent({ value }) {
         <Skeleton variant="rectangular" height={118} />
       </Stack>
       )}
-      {data && data.map((el) => (
-        <p key={el[`id_${value}`]}>
-          {el[`name_${value}`]}
-        </p>
-      ))}
+      {!loading && data && (
+        <Autocomplete
+          disablePortal
+          options={data}
+          getOptionLabel={(option) => option[`name_${value}`]}
+          // renderInput={(params) => <TextField {...params} label={value} />}
+          renderInput={(params) => {
+            console.log(params)
+            return (
+              <TextField value={params} label={value} />
+            )
+          }}
+        />
+      )}
     </Box>
   )
 }
