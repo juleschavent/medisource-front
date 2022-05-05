@@ -32,12 +32,17 @@ function ShowContent({ value }) {
           disablePortal
           options={data}
           getOptionLabel={(option) => option[`name_${value}`]}
-          // renderInput={(params) => <TextField {...params} label={value} />}
+          // eslint-disable-next-line react/jsx-props-no-spreading
           renderInput={(params) => {
             console.log(params)
-            return (
-              <TextField value={params} label={value} />
-            )
+            // params.InputProps.label = false
+            const InputProps = {
+              ...params.InputProps,
+              disabled: true,
+              // color: 'error',
+            }
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            return <TextField {...params} label={value} variant="standard" />
           }}
         />
       )}

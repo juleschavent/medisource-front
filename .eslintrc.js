@@ -24,6 +24,6 @@ module.exports = {
     semi: ['error', 'never'],
     'no-unused-vars': 'warn',
     'react/destructuring-assignment': 1,
-    'react/prop-types': 1,
+    'react/prop-types': 0,
   },
 }
